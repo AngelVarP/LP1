@@ -76,3 +76,4 @@ def agregarAlumno():
     print(f"Alumno {nombre} {apellido} agregado con éxito. Codigo: {newCodigo}")
     voz(f"Alumno {nombre} {apellido} agregado con éxito. Codigo: {newCodigo}")
     
+print("hola mundo")
