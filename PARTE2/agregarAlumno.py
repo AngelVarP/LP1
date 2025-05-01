@@ -29,6 +29,15 @@ def validarNota(nota):
         except ValueError:
             print("Entrada inválida. Debe ingresar un número entre 0 y 20.")
 
+# Funcion para validar existencia del alumno
+def verificarExistencia(codigo):
+    if os.path.exists("lista.txt"):
+        with open("lista.txt", "r") as file:
+            lines = file.readlines()
+            for line in lines:
+                if line.startswith(codigo):  # Verifica si el código ya existe
+                    return True  
+    return False  
 
 # Función para agregar un alumno
 def agregarAlumno():
@@ -38,13 +47,18 @@ def agregarAlumno():
         with open("lista.txt", "w") as file:
             file.write("Codigo | Apellido | Nombre | PC1 | PC2 | PC3 | PC4 | Promedio | Estado\n")
 
-    # Solicitar datos del alumno
-    codigo = input("Ingrese el codigo del alumno (6 dígitos): ")
+    while True:
+        # Solicitar datos del alumno
+        codigo = input("Ingrese el codigo del alumno (6 dígitos): ")
 
-    # Validar que el código tenga 6 dígitos
-    if len(codigo) != 6 or not codigo.isdigit():
-        print("El código debe ser de 6 dígitos.")
-        return
+        # Validar que el código tenga 6 dígitos
+        if len(codigo) != 6 or not codigo.isdigit():
+            print("El código debe ser de 6 dígitos.")
+            continue
+        
+        if verificarExistencia(codigo):
+            print("Funciono")
+            continue
 
     # Generar el código con Módulo 11
     newCodigo = modulo11(codigo)
