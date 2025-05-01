@@ -1,2 +1,4 @@
 Codigo | Apellido | Nombre | PC1 | PC2 | PC3 | PC4 | Promedio | Estado
-123456B | Vargas | Angel | 13.0 | 17.0 | 15.0 | 11.0 | 15.0 | Aprobado
+123456B | Valeriano | Angel | 14.0 | 15.0 | 13.0 | 11.0 | 14.0 | Aprobado
+456123H | Vargas | Karlo | 12.0 | 13.0 | 12.0 | 10.0 | 12.333333333333334 | Aprobado
+230607D | Rios | Nestor | 9.0 | 16.0 | 13.0 | 12.0 | 13.666666666666666 | Aprobado

@@ -3,6 +3,7 @@ from mostrarReporte import reporte
 from buscarAlumno import buscarAlumno
 from comandoVoz import voz
 from eliminarAlumno import eliminarAlumno
+from ordenarApellido import ordenarPorApellido
 
 def menu():
     while True:
@@ -10,8 +11,8 @@ def menu():
         print("1. Agregar alumno")
         print("2. Buscar alumno")
         print("3. Eliminar alumno")
-        print("4. Ordenar por apellidos")
-        print("5. Mostrar reporte de alumnos")
+        print("4. Mostrar reporte de alumno")
+        print("5. Mostrar reporte de alumnos por apellido")
         print("6. Salir")
         
         opcion = input("Selecciona una opción: ")
@@ -23,9 +24,9 @@ def menu():
         elif opcion == "3":
             eliminarAlumno()
         elif opcion == "4":
-            pass
-        elif opcion == "5":
             reporte()
+        elif opcion == "5":    
+            ordenarPorApellido()
         elif opcion == "6":
             print("\nPrograma finalizado...")
             voz("Programa finalizado")

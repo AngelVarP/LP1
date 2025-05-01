@@ -14,6 +14,7 @@ def cargarUsuarios():
     return usuarios
 
 def ingresoUsuario():
+    voz("Bienvenido")
     usuarios = cargarUsuarios()
     if not usuarios:
         return False  # No se cargaron usuarios
