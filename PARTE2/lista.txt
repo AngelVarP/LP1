@@ -1,0 +1,2 @@
+Codigo | Apellido | Nombre | PC1 | PC2 | PC3 | PC4 | Promedio | Estado
+123456B | Vargas | Angel | 13.0 | 17.0 | 15.0 | 11.0 | 15.0 | Aprobado
