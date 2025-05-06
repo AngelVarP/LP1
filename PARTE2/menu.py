@@ -1,3 +1,4 @@
+from validacionUsuario import agregarUsuario
 from agregarAlumno import agregarAlumno
 from mostrarReporte import reporte
 from buscarAlumno import buscarAlumno
@@ -13,7 +14,8 @@ def menu():
         print("3. Eliminar alumno")
         print("4. Mostrar reporte de alumno")
         print("5. Mostrar reporte de alumnos por apellido")
-        print("6. Salir")
+        print("6. Agregar usuario")
+        print("7. Salir")
         
         opcion = input("Selecciona una opción: ")
 
@@ -28,6 +30,8 @@ def menu():
         elif opcion == "5":    
             ordenarPorApellido()
         elif opcion == "6":
+            agregarUsuario()
+        elif opcion == "7":
             print("\nPrograma finalizado...")
             voz("Programa finalizado")
             break

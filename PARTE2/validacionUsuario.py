@@ -40,6 +40,7 @@ def agregarUsuario():
     faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
     print("Captura de rostro. Mantente bien posicionado.")
+    voz("Captura de rostro. Mantente bien posicionado.")
 
     count = 0
     while count < 30:
@@ -70,6 +71,8 @@ def agregarUsuario():
     with open("usuarios.txt", "a") as file:
         file.write(f"{nuevoUsuario},{nuevaClave}\n")
     print(f"Usuario {nuevoUsuario} agregado con éxito.")
+    voz(f"Usuario {nuevoUsuario} agregado con éxito.")
+    entrenar()
 
 
 def entrenar():
@@ -124,15 +127,14 @@ def ingresoUsuario():
 
         # Verificar si el usuario y la contraseña coinciden
         if usuario in usuarios and usuarios[usuario] == clave:
-            print(f"Bienvenido, {usuario}.")
-            voz(f"Bienvenido, {usuario}.")
-
-            # Validación de rostro
+             # Validación de rostro
             if not validarRostro(usuario):
                 print("No se ha podido verificar el rostro.")
                 voz("No se ha podido verificar el rostro.")
                 return False
             
+            print(f"Bienvenido, {usuario}.")
+            voz(f"Bienvenido, {usuario}.")
             return True
         else:
             print(f"Usuario o contraseña incorrectos. Intentos restantes: {2 - intentos}")
@@ -188,11 +190,3 @@ def validarRostro(usuario):
     cv2.destroyAllWindows()
     return False
 
-
-# Llamar a agregar un usuario de prueba
-agregarUsuario()
-
-# Ahora que tienes al menos un usuario con fotos, puedes entrenar el modelo
-entrenar()
-
-ingresoUsuario()
