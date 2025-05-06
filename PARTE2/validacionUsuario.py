@@ -39,8 +39,8 @@ def agregarUsuario():
     cap = cv2.VideoCapture(0)
     faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-    print("Captura de rostro. Mantente bien posicionado.")
-    voz("Captura de rostro. Mantente bien posicionado.")
+    print("Capturando rostro. Mantente bien posicionado.")
+    voz("Capturando rostro. Mantente bien posicionado.")
 
     count = 0
     while count < 30:
@@ -76,7 +76,7 @@ def agregarUsuario():
 
 
 def entrenar():
-    print("Entrenando el modelo de rostros...")
+    #print("Entrenando el modelo de rostros...")
 
     # Ruta de las fotos de los usuarios
     dataPath = './Fotos'  # Asegúrate de que esta ruta sea correcta
@@ -88,10 +88,10 @@ def entrenar():
 
     for nameDir in peopleList:
         personPath = dataPath + '/' + nameDir
-        print(f'Leyendo las imágenes de {nameDir}')
+        #print(f'Leyendo las imágenes de {nameDir}')
 
         for fileName in os.listdir(personPath):
-            print(f'Rostro: {nameDir}/{fileName}')
+            #print(f'Rostro: {nameDir}/{fileName}')
             labels.append(label)
             facesData.append(cv2.imread(personPath + '/' + fileName, 0))  # Leer en escala de grises
             image = cv2.imread(personPath + '/' + fileName, 0)
@@ -100,7 +100,7 @@ def entrenar():
         label += 1
 
     # Entrenar el reconocedor de rostros
-    print("Entrenando...")
+    #print("Entrenando...")
     face_recognizer = cv2.face.LBPHFaceRecognizer_create()  # Usamos LBPH
     face_recognizer.train(facesData, np.array(labels))
 
@@ -110,7 +110,7 @@ def entrenar():
         os.makedirs(model_dir)
 
     face_recognizer.write(os.path.join(model_dir,'modeloLBPHFace.xml'))  # Guarda el modelo en la carpeta Modelos
-    print("Modelo entrenado y guardado como modeloLBPHFace.xml")
+    #print("Modelo entrenado y guardado como modeloLBPHFace.xml")
 
 
 def ingresoUsuario():
@@ -170,7 +170,7 @@ def validarRostro(usuario):
             result = recognizer.predict(rostro)
 
             if result[1] < 70:  # Umbral de confianza
-                print(f"Rostro verificado con éxito: {result}")
+                print(f"Rostro verificado con éxito:")
                 voz(f"Rostro verificado con éxito.")
                 cap.release()
                 cv2.destroyAllWindows()
