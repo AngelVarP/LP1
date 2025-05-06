@@ -57,36 +57,36 @@ def agregarAlumno():
             continue
         
         if verificarExistencia(codigo):
-            print("Funciono")
+            print("El alumno ya existe.")
             continue
 
-    # Generar el código con Módulo 11
-    newCodigo = modulo11(codigo)
-    
-    apellido = input("Apellido del alumno: ")
-    nombre = input("Nombre del alumno: ")
-    
-    # Ingresar notas
-    pc1 = validarNota("Nota PC1")
-    pc2 = validarNota("Nota PC2")
-    pc3 = validarNota("Nota PC3")
-    pc4 = validarNota("Nota PC4")
-    
-    # Eliminar la menor nota y calcular el promedio
-    notas = [pc1, pc2, pc3, pc4]
-    notas.remove(min(notas))  
-    promedio = sum(notas) / 3  
+        # Generar el código con Módulo 11
+        newCodigo = modulo11(codigo)
+        
+        apellido = input("Apellido del alumno: ")
+        nombre = input("Nombre del alumno: ")
+        
+        # Ingresar notas
+        pc1 = validarNota("Nota PC1")
+        pc2 = validarNota("Nota PC2")
+        pc3 = validarNota("Nota PC3")
+        pc4 = validarNota("Nota PC4")
+        
+        # Eliminar la menor nota y calcular el promedio
+        notas = [pc1, pc2, pc3, pc4]
+        notas.remove(min(notas))  
+        promedio = sum(notas) / 3  
 
-    # Determinar el estado
-    if promedio >= 10:
-        estado = "Aprobado"
-    else:
-        estado = "Desaprobado"
+        # Determinar el estado
+        if promedio >= 10:
+            estado = "Aprobado"
+        else:
+            estado = "Desaprobado"
 
-    # Escribir los datos del alumno en el archivo lista.txt
-    with open("lista.txt", "a") as file:
-        file.write(f"{newCodigo} | {apellido} | {nombre} | {pc1} | {pc2} | {pc3} | {pc4} | {promedio} | {estado}\n")
-    
-    print(f"Alumno {nombre} {apellido} agregado con éxito. Codigo: {newCodigo}")
-    voz(f"Alumno {nombre} {apellido} agregado con éxito. Codigo: {newCodigo}")
+        # Escribir los datos del alumno en el archivo lista.txt
+        with open("lista.txt", "a") as file:
+            file.write(f"{newCodigo} | {apellido} | {nombre} | {pc1} | {pc2} | {pc3} | {pc4} | {promedio} | {estado}\n")
+        
+        print(f"Alumno {nombre} {apellido} agregado con éxito. Codigo: {newCodigo}")
+        voz(f"Alumno {nombre} {apellido} agregado con éxito. Codigo: {newCodigo}")
     
