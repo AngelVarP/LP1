@@ -106,7 +106,7 @@ def entrenar():
     if not os.path.exists(model_dir):
         os.makedirs(model_dir)
 
-    face_recognizer.write(os.path.join(model_dir,'modeloLBHFace.xml'))  # Guarda el modelo en la carpeta Modelos
+    face_recognizer.write(os.path.join(model_dir,'modeloLBPHFace.xml'))  # Guarda el modelo en la carpeta Modelos
     print("Modelo entrenado y guardado como modeloLBPHFace.xml")
 
 
