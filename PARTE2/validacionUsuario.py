@@ -102,7 +102,7 @@ def entrenar():
     face_recognizer.train(facesData, np.array(labels))
 
     # Guardar el modelo entrenado
-    model_dir= '-/Modelos'
+    model_dir= './Modelos'
     if not os.path.exists(model_dir):
         os.makedirs(model_dir)
 
@@ -194,3 +194,5 @@ agregarUsuario()
 
 # Ahora que tienes al menos un usuario con fotos, puedes entrenar el modelo
 entrenar()
+
+ingresoUsuario()
