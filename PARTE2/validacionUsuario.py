@@ -66,8 +66,8 @@ def agregarUsuario():
     cap.release()
     cv2.destroyAllWindows()
 
-    # Guardar usuario y contraseña en el archivo lista.txt
-    with open("lista.txt", "a") as file:
+    # Guardar usuario y contraseña en el archivo usuarios.txt
+    with open("usuarios.txt", "a") as file:
         file.write(f"{nuevoUsuario},{nuevaClave}\n")
     print(f"Usuario {nuevoUsuario} agregado con éxito.")
 
@@ -102,7 +102,11 @@ def entrenar():
     face_recognizer.train(facesData, np.array(labels))
 
     # Guardar el modelo entrenado
-    face_recognizer.write('./Modelos/modeloLBPHFace.xml')  # Guarda el modelo en la carpeta Modelos
+    model_dir= '-/Modelos'
+    if not os.path.exists(model_dir):
+        os.makedirs(model_dir)
+
+    face_recognizer.write(os.path.join(model_dir,'modeloLBHFace.xml'))  # Guarda el modelo en la carpeta Modelos
     print("Modelo entrenado y guardado como modeloLBPHFace.xml")
 
 
