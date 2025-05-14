@@ -1,0 +1,5 @@
+user1,100
+Fiis,200
+Salas,300
+Karlo,234
+Nestor,456
