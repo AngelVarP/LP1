@@ -1,4 +1,0 @@
-user1,100
-Fiis,200
-Salas,300
-Angel,angel2306
