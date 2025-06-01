@@ -1,0 +1,3 @@
+Introducir los comandos 
+-pip install gTTS
+-pip install pygame

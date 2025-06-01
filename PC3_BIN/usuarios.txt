@@ -1,0 +1,4 @@
+Usuario | Contraseña
+------------------------------
+admin | 1234
+nestor | 4567
